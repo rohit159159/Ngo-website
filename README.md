@@ -1,4 +1,4 @@
-Basti Ki Pathshala 🌿 — Together We Can Change Lives
+# Basti Ki Pathshala 🌿 — Together We Can Change Lives <br>
 Welcome to the official repository of Basti Ki Pathshala, a non-profit initiative dedicated to transforming the lives of underprivileged children through education, community development, and volunteer-driven efforts.
 
 This project represents the frontend web portal for volunteers, donors, and community members to engage with our mission. The portal includes donation campaigns, volunteer registration, success stories, and essential information about our impact.
