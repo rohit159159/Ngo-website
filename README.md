@@ -4,7 +4,7 @@ Welcome to the official repository of Basti Ki Pathshala, a non-profit initiativ
 This project represents the frontend web portal for volunteers, donors, and community members to engage with our mission. The portal includes donation campaigns, volunteer registration, success stories, and essential information about our impact.
 
 🌐 Live Demo View Portfolio — (https://ngo-task01.netlify.app/) <br>
-📸 Screenshot
+📸 Screenshot ![Website Screenshot]()
 
 🌟 Features <br>
 🎯 Responsive Landing Page — Tailwind CSS powered design with modern animations. <br>
