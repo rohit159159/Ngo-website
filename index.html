@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HeartsUnited - Together We Can Change Lives</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#2d5a3d", secondary: "#7cb342" },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes scaleIn {
+        from {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      @keyframes slideInRight {
+        from {
+          opacity: 0;
+          transform: translateX(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      .animate-fadeInUp {
+        animation: fadeInUp 0.6s ease-out forwards;
+      }
+      .animate-scaleIn {
+        animation: scaleIn 0.5s ease-out forwards;
+      }
+      .animate-slideInRight {
+        animation: slideInRight 0.5s ease-out forwards;
+      }
+      .animate-delay-100 {
+        animation-delay: 100ms;
+      }
+      .animate-delay-200 {
+        animation-delay: 200ms;
+      }
+      .animate-delay-300 {
+        animation-delay: 300ms;
+      }
+      .hero-bg {
+      background: linear-gradient(135deg, #2d5a3d 0%, #1e3d29 100%);
+      }
+      .volunteer-form {
+      background: linear-gradient(135deg, #f8fffe 0%, #f0f9f6 100%);
+      }
+      .auth-bg {
+      background: linear-gradient(135deg, #2d5a3d 0%, #1e3d29 100%);
+      }
+      .slide-in {
+      animation: slideIn 0.5s ease-out;
+      }
+      @keyframes slideIn {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+      }
+      .fade-in {
+      animation: fadeIn 0.3s ease-out;
+      }
+      @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+      }
+      .mobile-menu {
+      transform: translateX(-100%);
+      transition: transform 0.3s ease-in-out;
+      }
+      .mobile-menu.active {
+      transform: translateX(0);
+      }
+      .custom-checkbox {
+      appearance: none;
+      width: 1.25rem;
+      height: 1.25rem;
+      border: 2px solid #d1d5db;
+      border-radius: 4px;
+      background: white;
+      cursor: pointer;
+      position: relative;
+      }
+      .custom-checkbox:checked {
+      background: #2d5a3d;
+      border-color: #2d5a3d;
+      }
+      .custom-checkbox:checked::after {
+      content: '✓';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: bold;
+      }
+      .custom-radio {
+      appearance: none;
+      width: 1.25rem;
+      height: 1.25rem;
+      border: 2px solid #d1d5db;
+      border-radius: 50%;
+      background: white;
+      cursor: pointer;
+      position: relative;
+      }
+      .custom-radio:checked {
+      border-color: #2d5a3d;
+      }
+      .custom-radio:checked::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 0.5rem;
+      height: 0.5rem;
+      background: #2d5a3d;
+      border-radius: 50%;
+      }
+      .custom-select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+      background-position: right 0.5rem center;
+      background-repeat: no-repeat;
+      background-size: 1.5em 1.5em;
+      padding-right: 2.5rem;
+      }
+    </style>
+  </head>
+  <body class="font-sans">
+    <header class="bg-primary text-white relative z-50">
+      <div class="container mx-auto px-4 py-4">
+        <nav class="flex items-center justify-between">
+          <div class="font-['Pacifico'] text-2xl text-white">Basti Ki Pathshala</div>
+          <div class="hidden lg:flex items-center space-x-8">
+            <a href="#home" class="hover:text-secondary transition-colors"
+              >Home</a
+            >
+            <a href="#about" class="hover:text-secondary transition-colors"
+              >About Us</a
+            >
+            <a href="#volunteer" class="hover:text-secondary transition-colors"
+              >Volunteer</a
+            >
+          </div>
+          <div class="hidden lg:flex items-center space-x-4">
+            <button
+              id="loginBtn"
+              class="text-white hover:text-secondary transition-colors"
+            >
+              Login
+            </button>
+            <button
+              id="signupBtn"
+              class="bg-white text-primary px-6 py-2 !rounded-button hover:bg-gray-100 transition-colors whitespace-nowrap"
+            >
+              Join Now
+            </button>
+          </div>
+          <button
+            id="mobileMenuBtn"
+            class="lg:hidden w-8 h-8 flex items-center justify-center"
+          >
+            <i class="ri-menu-line text-xl"></i>
+          </button>
+        </nav>
+      </div>
+      <div
+        id="mobileMenu"
+        class="mobile-menu fixed top-0 left-0 w-full h-full bg-primary z-40 lg:hidden"
+      >
+        <div class="p-4">
+          <div class="flex justify-between items-center mb-8">
+            <div class="font-['Pacifico'] text-2xl text-white">
+              Basti Ki Pathshala
+            </div>
+            <button
+              id="closeMobileMenu"
+              class="w-8 h-8 flex items-center justify-center"
+            >
+              <i class="ri-close-line text-xl text-white"></i>
+            </button>
+          </div>
+          <div class="flex flex-col space-y-6">
+            <a
+              href="#home"
+              class="text-white text-lg hover:text-secondary transition-colors"
+              >Home</a
+            >
+            <a
+              href="#about"
+              class="text-white text-lg hover:text-secondary transition-colors"
+              >About Us</a
+            >
+        
+            <div class="pt-4 border-t border-white/20">
+              <button
+                id="mobileLoginBtn"
+                class="text-white text-lg hover:text-secondary transition-colors block mb-4"
+              >
+                Login
+              </button>
+              <button
+                class="bg-white text-primary px-6 py-2 !rounded-button hover:bg-gray-100 transition-colors whitespace-nowrap"
+              >
+                Join Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section
+        id="home"
+        class="hero-bg min-h-screen flex items-center relative overflow-hidden"
+        style="background-image: url('https://readdy.ai/api/search-image?query=indian%20volunteers%20helping%20children%20in%20rural%20village%20setting%2C%20traditional%20Indian%20clothing%2C%20warm%20sunlight%2C%20green%20nature%20background%2C%20hopeful%20atmosphere%2C%20professional%20photography%20style%20with%20natural%20lighting%2C%20showing%20unity%20and%20community%20spirit%20in%20India&width=1920&height=1080&seq=hero001&orientation=landscape'); background-size: cover; background-position: center;"
+      >
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-transparent"
+        ></div>
+        <div class="container mx-auto px-4 relative z-10">
+          <div class="max-w-4xl">
+            <h1
+              class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight animate-fadeInUp"
+            >
+              Together, We Can Change Lives
+            </h1>
+            <p
+              class="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl leading-relaxed animate-fadeInUp animate-delay-100"
+            >
+              Join us in our mission to break the barriers of education in underserved communities. 
+              With your support, we can provide quality education to children living in slum areas, 
+              empowering them with the knowledge and skills they need to build a brighter future. 
+              Together, let’s make a difference. Take action today and be a part of the change!
+            </p>
+            <button
+              class="bg-secondary text-white px-8 py-4 text-lg font-semibold !rounded-button hover:bg-secondary/90 transition-all duration-300 transform hover:scale-105 whitespace-nowrap inline-flex items-center animate-fadeInUp animate-delay-200"
+            >
+              Donate Now
+              <i
+                class="ri-arrow-right-line ml-2 w-5 h-5 flex items-center justify-center"
+              ></i>
+            </button>
+          </div>
+        </div>
+        <div class="absolute bottom-8 right-8 hidden lg:block">
+          <img
+            src="https://readdy.ai/api/search-image?query=hands%20holding%20donation%20box%20with%20heart%20symbol%2C%20warm%20lighting%2C%20green%20background%2C%20charity%20concept%2C%20professional%20illustration%20style&width=200&height=200&seq=donate001&orientation=squarish"
+            alt="Donation"
+            class="w-32 h-32 object-cover rounded-xl"
+          />
+        </div>
+      </section>
+      <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="text-center">
+              <div class="relative mb-4">
+                <img
+                  src="images/OIP (3).webp"
+                  alt="Money Donated"
+                  class="w-full h-48 object-cover rounded-xl"
+                />
+                <div
+                  class="absolute top-4 left-4 bg-secondary text-white px-3 py-1 rounded-full text-sm font-semibold"
+                >
+                  ₹15Cr
+                </div>
+              </div>
+              <h3 class="text-lg font-semibold text-gray-800">Money Donated</h3>
+            </div>
+            <div class="text-center">
+              <div class="relative mb-4">
+                <img
+                  src="images/OIP (2).webp"
+                  alt="Active Campaigns"
+                  class="w-full h-48 object-cover rounded-xl"
+                />
+                <div
+                  class="absolute top-4 left-4 bg-secondary text-white px-3 py-1 rounded-full text-sm font-semibold"
+                >
+                  34+
+                </div>
+              </div>
+              <h3 class="text-lg font-semibold text-gray-800">
+                Active Campaigns
+              </h3>
+            </div>
+            <div class="text-center">
+              <div class="relative mb-4">
+                <img
+                  src="images/OIP (1).webp"
+                  alt="Charity Last Year"
+                  class="w-full h-48 object-cover rounded-xl"
+                />
+                <div
+                  class="absolute top-4 left-4 bg-secondary text-white px-3 py-1 rounded-full text-sm font-semibold"
+                >
+                  ₹10Cr
+                </div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <button
+                    class="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center hover:bg-white transition-colors"
+                  >
+                    <i
+                      class="ri-play-fill text-2xl text-primary w-6 h-6 flex items-center justify-center"
+                    ></i>
+                  </button>
+                </div>
+              </div>
+              <h3 class="text-lg font-semibold text-gray-800">
+                Charity in last year
+              </h3>
+            </div>
+            <div class="text-center">
+              <div class="relative mb-4">
+                <img
+                  src="images/OIP.webp"
+                  alt="Lives Changed"
+                  class="w-full h-48 object-cover rounded-xl"
+                />
+                <div
+                  class="absolute top-4 left-4 bg-secondary text-white px-3 py-1 rounded-full text-sm font-semibold"
+                >
+                  31,245+
+                </div>
+              </div>
+              <h3 class="text-lg font-semibold text-gray-800">Lives Changed</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="volunteer" class="volunteer-form py-16">
+        <div class="container mx-auto px-4">
+          <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+              <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                Join Our Volunteer Community
+              </h2>
+              <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                Make a difference in your community. Fill out the form below to
+                become part of our dedicated volunteer team.
+              </p>
+            </div>
+            <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12">
+              <form id="volunteerForm" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label
+                      class="block text-sm font-semibold text-gray-700 mb-2"
+                      >Full Name *</label
+                    >
+                    <input
+                      type="text"
+                      required
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
+                      placeholder="Enter your full name"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      class="block text-sm font-semibold text-gray-700 mb-2"
+                      >Email Address *</label
+                    >
+                    <input
+                      type="email"
+                      required
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
+                      placeholder="Enter your email"
+                    />
+                  </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label
+                      class="block text-sm font-semibold text-gray-700 mb-2"
+                      >Phone Number *</label
+                    >
+                    <input
+                      type="tel"
+                      required
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
+                      placeholder="Enter your phone number"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      class="block text-sm font-semibold text-gray-700 mb-2"
+                      >Area of Interest *</label
+                    >
+                    <select
+                      required
+                      class="custom-select w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
+                    >
+                      <option value="">Select an area</option>
+                      <option value="education">Education & Tutoring</option>
+                      <option value="healthcare">Healthcare Support</option>
+                      <option value="elderly">Elderly Care</option>
+                      <option value="environment">
+                        Environmental Projects
+                      </option>
+                      <option value="food">Food Distribution</option>
+                      <option value="fundraising">Fundraising Events</option>
+                    </select>
+                  </div>
+                </div>
+                <div>
+                  <label class="block text-sm font-semibold text-gray-700 mb-3"
+                    >Available Hours per Week</label
+                  >
+                  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <label class="flex items-center space-x-2 cursor-pointer">
+                      <input
+                        type="radio"
+                        name="hours"
+                        value="1-5"
+                        class="custom-radio"
+                      />
+                      <span class="text-sm text-gray-700">1-5 hours</span>
+                    </label>
+                    <label class="flex items-center space-x-2 cursor-pointer">
+                      <input
+                        type="radio"
+                        name="hours"
+                        value="6-10"
+                        class="custom-radio"
+                      />
+                      <span class="text-sm text-gray-700">6-10 hours</span>
+                    </label>
+                    <label class="flex items-center space-x-2 cursor-pointer">
+                      <input
+                        type="radio"
+                        name="hours"
+                        value="11-20"
+                        class="custom-radio"
+                      />
+                      <span class="text-sm text-gray-700">11-20 hours</span>
+                    </label>
+                    <label class="flex items-center space-x-2 cursor-pointer">
+                      <input
+                        type="radio"
+                        name="hours"
+                        value="20+"
+                        class="custom-radio"
+                      />
+                      <span class="text-sm text-gray-700">20+ hours</span>
+                    </label>
+                  </div>
+                </div>
+                <div>
+                  <label class="block text-sm font-semibold text-gray-700 mb-2"
+                    >Message / Comments</label
+                  >
+                  <textarea
+                    rows="4"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm resize-none"
+                    placeholder="Tell us about your motivation and any relevant experience..."
+                  ></textarea>
+                </div>
+                <div class="flex items-start space-x-3">
+                  <input
+                    type="checkbox"
+                    id="terms"
+                    required
+                    class="custom-checkbox mt-1"
+                  />
+                  <label
+                    for="terms"
+                    class="text-sm text-gray-600 cursor-pointer"
+                  >
+                    I agree to the
+                    <a href="#" class="text-primary hover:underline"
+                      >Terms of Service</a
+                    >
+                    and
+                    <a href="#" class="text-primary hover:underline"
+                      >Privacy Policy</a
+                    >
+                  </label>
+                </div>
+                <div class="text-center pt-4">
+                  <button
+                    type="submit"
+                    class="bg-primary text-white px-8 py-4 text-lg font-semibold !rounded-button hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 whitespace-nowrap"
+                  >
+                    Submit Application
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="about" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="order-2 lg:order-1">
+              <img
+                src="images/1_kMQ3Vct7TtBHcGI8gl3DUA.png"
+                alt="About Us"
+                class="w-full h-96 object-cover rounded-2xl shadow-lg"
+              />
+            </div>
+            <div class="order-1 lg:order-2">
+              <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+                About Basti Ki Pathshala
+              </h2>
+              <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                Basti Ki Pathshala Foundation began with a simple yet powerful vision: to transform 
+                the lives of children living in slum areas through education. Founded under the 
+                Indian Societies Act of 1860, our journey started with a deep-seated belief in the 
+                potential of every child, regardless of their circumstances.
+                It all began when Sunita, inspired by their own experiences and driven by a passion
+                 for social justice, embarked on a mission to address the educational inequalities 
+                 prevalent in underserved communities. Armed with determination and fueled by 
+                 compassion, they rallied a team of like-minded individuals who shared their vision 
+                 of a brighter, more equitable future.
+              </p>
+              <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+               Our story is still being written, with each chapter filled with hope, resilience, and 
+               determination. As we look towards the future, we remain steadfast in our mission to 
+               break down barriers, uplift communities, and create a world where every child has the 
+               opportunity to thrive.
+              </p>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div class="flex items-start space-x-3">
+                  <div
+                    class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center flex-shrink-0"
+                  >
+                    <i
+                      class="ri-check-line text-white w-4 h-4 flex items-center justify-center"
+                    ></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-800 mb-1">
+                      Transparent Operations
+                    </h4>
+                    <p class="text-sm text-gray-600">
+                      95% of donations go directly to programs
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start space-x-3">
+                  <div
+                    class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center flex-shrink-0"
+                  >
+                    <i
+                      class="ri-check-line text-white w-4 h-4 flex items-center justify-center"
+                    ></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-800 mb-1">
+                      Life Change
+                    </h4>
+                    <p class="text-sm text-gray-600">
+                      31,245
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start space-x-3">
+                  <div
+                    class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center flex-shrink-0"
+                  >
+                    <i
+                      class="ri-check-line text-white w-4 h-4 flex items-center justify-center"
+                    ></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-800 mb-1">
+                      Sustainable Solutions
+                    </h4>
+                    <p class="text-sm text-gray-600">
+                      Long-term community development focus
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start space-x-3">
+                  <div
+                    class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center flex-shrink-0"
+                  >
+                    <i
+                      class="ri-check-line text-white w-4 h-4 flex items-center justify-center"
+                    ></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-800 mb-1">
+                      Meal Served
+                    </h4>
+                    <p class="text-sm text-gray-600">
+                      28,976
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="bg-primary text-white px-6 py-3 !rounded-button hover:bg-primary/90 transition-colors whitespace-nowrap"
+              >
+                Learn More About Us
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div>
+            <div class="font-['Pacifico'] text-2xl text-white mb-4">
+              Basti Ki Pathshala
+            </div>
+            <p class="text-gray-400 mb-6 leading-relaxed">
+             Our Mission: A succinct statement outlining the core purpose and goals of your organization
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors"
+              >
+                <i
+                  class="ri-facebook-fill w-5 h-5 flex items-center justify-center"
+                ></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors"
+              >
+                <i
+                  class="ri-twitter-fill w-5 h-5 flex items-center justify-center"
+                ></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors"
+              >
+                <i
+                  class="ri-instagram-fill w-5 h-5 flex items-center justify-center"
+                ></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors"
+              >
+                <i
+                  class="ri-linkedin-fill w-5 h-5 flex items-center justify-center"
+                ></i>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h4 class="font-semibold text-lg mb-4">Quick Links</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#about"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#volunteer"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Volunteer</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#donations"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Donate</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#success"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Success Stories</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#event"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Events</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#blog"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Blog</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold text-lg mb-4">Programs</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Education Support</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Healthcare Access</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Clean Water Initiative</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Food Security</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Environmental Projects</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Emergency Relief</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold text-lg mb-4">Newsletter</h4>
+            <p class="text-gray-400 mb-4">
+              Stay updated with our latest news and impact stories.
+            </p>
+            <div class="flex gap-2">
+              <input
+                type="email"
+                placeholder="Your email"
+                class="flex-1 px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
+              />
+              <button
+                class="bg-primary text-white px-4 py-2 !rounded-button hover:bg-primary/90 transition-colors whitespace-nowrap"
+              >
+                <i
+                  class="ri-send-plane-line w-4 h-4 flex items-center justify-center"
+                ></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+          <p class="text-gray-400">
+            © 2025 Basti Ki Pathshala. All rights reserved. |
+            <a href="#" class="hover:text-white transition-colors"
+              >Privacy Policy</a
+            >
+            |
+            <a href="#" class="hover:text-white transition-colors"
+              >Terms of Service</a
+            >
+          </p>
+        </div>
+      </div>
+    </footer>
+    <div
+      id="authModal"
+      class="fixed inset-0 bg-black/50 z-50 hidden items-center justify-center p-4"
+    >
+      <div
+        class="bg-white rounded-2xl w-full max-w-md transform transition-all duration-300 scale-95 opacity-0"
+        id="authModalContent"
+      >
+        <div class="p-8">
+          <div class="text-center mb-6">
+            <h3 id="authTitle" class="text-2xl font-bold text-gray-800 mb-2">
+              Welcome Back
+            </h3>
+            <p id="authSubtitle" class="text-gray-600">
+              Sign in to your account
+            </p>
+          </div>
+          <form id="authForm" class="space-y-4">
+            <div id="nameField" class="hidden">
+              <label class="block text-sm font-semibold text-gray-700 mb-2"
+                >Full Name</label
+              >
+              <input
+                type="text"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
+                placeholder="Enter your full name"
+              />
+            </div>
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-2"
+                >Email</label
+              >
+              <input
+                type="email"
+                required
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
+                placeholder="Enter your email"
+              />
+            </div>
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-2"
+                >Password</label
+              >
+              <input
+                type="password"
+                required
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
+                placeholder="Enter your password"
+              />
+            </div>
+            <div id="loginExtras" class="flex items-center justify-between">
+              <label class="flex items-center space-x-2 cursor-pointer">
+                <input type="checkbox" class="custom-checkbox" />
+                <span class="text-sm text-gray-600">Remember me</span>
+              </label>
+              <a href="#" class="text-sm text-primary hover:underline"
+                >Forgot password?</a
+              >
+            </div>
+            <button
+              type="submit"
+              class="w-full bg-primary text-white py-3 !rounded-button hover:bg-primary/90 transition-colors font-semibold whitespace-nowrap"
+            >
+              <span id="authSubmitText">Sign In</span>
+            </button>
+            <div class="text-center">
+              <span class="text-sm text-gray-600">
+                <span id="authSwitchText">Don't have an account?</span>
+                <button
+                  type="button"
+                  id="authSwitchBtn"
+                  class="text-primary hover:underline font-semibold ml-1"
+                >
+                  Sign up
+                </button>
+              </span>
+            </div>
+            <div class="relative my-6">
+              <div class="absolute inset-0 flex items-center">
+                <div class="w-full border-t border-gray-300"></div>
+              </div>
+              <div class="relative flex justify-center text-sm">
+                <span class="px-2 bg-white text-gray-500"
+                  >Or continue with</span
+                >
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <button
+                type="button"
+                class="flex items-center justify-center px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+              >
+                <i
+                  class="ri-google-fill text-red-500 mr-2 w-5 h-5 flex items-center justify-center"
+                ></i>
+                <span class="text-sm font-medium text-gray-700">Google</span>
+              </button>
+              <button
+                type="button"
+                class="flex items-center justify-center px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+              >
+                <i
+                  class="ri-facebook-fill text-blue-600 mr-2 w-5 h-5 flex items-center justify-center"
+                ></i>
+                <span class="text-sm font-medium text-gray-700">Facebook</span>
+              </button>
+            </div>
+          </form>
+          <button
+            id="closeAuthModal"
+            class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center text-gray-400 hover:text-gray-600 transition-colors"
+          >
+            <i
+              class="ri-close-line w-5 h-5 flex items-center justify-center"
+            ></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <script id="mobileMenuScript">
+      document.addEventListener("DOMContentLoaded", function () {
+        const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+        const mobileMenu = document.getElementById("mobileMenu");
+        const closeMobileMenu = document.getElementById("closeMobileMenu");
+        mobileMenuBtn.addEventListener("click", function () {
+          mobileMenu.classList.add("active");
+        });
+        closeMobileMenu.addEventListener("click", function () {
+          mobileMenu.classList.remove("active");
+        });
+        document.addEventListener("click", function (e) {
+          if (e.target === mobileMenu) {
+            mobileMenu.classList.remove("active");
+          }
+        });
+      });
+    </script>
+    <script id="signupScript">
+      document.addEventListener("DOMContentLoaded", function () {
+        const signupBtn = document.getElementById("signupBtn");
+        signupBtn.addEventListener("click", function () {
+          const authModal = document.getElementById("authModal");
+          const authModalContent = document.getElementById("authModalContent");
+          const authTitle = document.getElementById("authTitle");
+          const authSubtitle = document.getElementById("authSubtitle");
+          const authSubmitText = document.getElementById("authSubmitText");
+          const authSwitchText = document.getElementById("authSwitchText");
+          const nameField = document.getElementById("nameField");
+          const loginExtras = document.getElementById("loginExtras");
+
+          authTitle.textContent = "Create Account";
+          authSubtitle.textContent = "Join our community today";
+          authSubmitText.textContent = "Sign Up";
+          authSwitchText.textContent = "Already have an account?";
+          nameField.classList.remove("hidden");
+          loginExtras.classList.add("hidden");
+
+          authModal.classList.remove("hidden");
+          authModal.classList.add("flex");
+          setTimeout(() => {
+            authModalContent.classList.remove("scale-95", "opacity-0");
+            authModalContent.classList.add("scale-100", "opacity-100");
+          }, 10);
+        });
+      });
+    </script>
+    <script id="authModalScript">
+      document.addEventListener("DOMContentLoaded", function () {
+        const authModal = document.getElementById("authModal");
+        const authModalContent = document.getElementById("authModalContent");
+        const loginBtn = document.getElementById("loginBtn");
+        const mobileLoginBtn = document.getElementById("mobileLoginBtn");
+        const closeAuthModal = document.getElementById("closeAuthModal");
+        const authSwitchBtn = document.getElementById("authSwitchBtn");
+        const authTitle = document.getElementById("authTitle");
+        const authSubtitle = document.getElementById("authSubtitle");
+        const authSubmitText = document.getElementById("authSubmitText");
+        const authSwitchText = document.getElementById("authSwitchText");
+        const nameField = document.getElementById("nameField");
+        const loginExtras = document.getElementById("loginExtras");
+        let isLoginMode = true;
+        function showModal() {
+          authModal.classList.remove("hidden");
+          authModal.classList.add("flex");
+          setTimeout(() => {
+            authModalContent.classList.remove("scale-95", "opacity-0");
+            authModalContent.classList.add("scale-100", "opacity-100");
+          }, 10);
+        }
+        function hideModal() {
+          authModalContent.classList.remove("scale-100", "opacity-100");
+          authModalContent.classList.add("scale-95", "opacity-0");
+          setTimeout(() => {
+            authModal.classList.add("hidden");
+            authModal.classList.remove("flex");
+          }, 300);
+        }
+        function switchMode() {
+          isLoginMode = !isLoginMode;
+          if (isLoginMode) {
+            authTitle.textContent = "Welcome Back";
+            authSubtitle.textContent = "Sign in to your account";
+            authSubmitText.textContent = "Sign In";
+            authSwitchText.textContent = "Don't have an account?";
+            authSwitchBtn.textContent = "Sign up";
+            nameField.classList.add("hidden");
+            loginExtras.classList.remove("hidden");
+          } else {
+            authTitle.textContent = "Create Account";
+            authSubtitle.textContent = "Join our community today";
+            authSubmitText.textContent = "Sign Up";
+            authSwitchText.textContent = "Already have an account?";
+            authSwitchBtn.textContent = "Sign in";
+            nameField.classList.remove("hidden");
+            loginExtras.classList.add("hidden");
+          }
+        }
+        loginBtn.addEventListener("click", showModal);
+        mobileLoginBtn.addEventListener("click", showModal);
+        closeAuthModal.addEventListener("click", hideModal);
+        authSwitchBtn.addEventListener("click", switchMode);
+        authModal.addEventListener("click", function (e) {
+          if (e.target === authModal) {
+            hideModal();
+          }
+        });
+      });
+    </script>
+    <script id="volunteerFormScript">
+      document.addEventListener("DOMContentLoaded", function () {
+        const volunteerForm = document.getElementById("volunteerForm");
+        volunteerForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const submitBtn = volunteerForm.querySelector('button[type="submit"]');
+          const originalText = submitBtn.textContent;
+          submitBtn.textContent = "Submitting...";
+          submitBtn.disabled = true;
+          setTimeout(() => {
+            alert("Thank you for your application! We will contact you soon.");
+            volunteerForm.reset();
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+          }, 2000);
+        });
+      });
+    </script>
+    <script id="smoothScrollScript">
+      document.addEventListener("DOMContentLoaded", function () {
+        const links = document.querySelectorAll('a[href^="#"]');
+        links.forEach((link) => {
+          link.addEventListener("click", function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute("href");
+            const targetSection = document.querySelector(targetId);
+            if (targetSection) {
+              targetSection.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+              const mobileMenu = document.getElementById("mobileMenu");
+              if (mobileMenu.classList.contains("active")) {
+                mobileMenu.classList.remove("active");
+              }
+            }
+          });
+        });
+      });
+</script>
+  </body>
+</html>
